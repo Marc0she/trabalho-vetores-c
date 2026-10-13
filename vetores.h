@@ -1,0 +1,16 @@
+int verificar_vetor(int v);
+void limpaBuffer(void);
+void sobre(void);
+void preencher_vetor(float vetor[10]);
+void exibir_vetor(float v[10]);
+void vetor_inverso(float v[10]);
+void vetor_elemento(float v[10], int n);
+void maior_elemento(float v[10]);
+void menor_elemento(float v[10]);
+void substituir_elemento(float v[10], int pos, float new);
+void media_elementos(float v[10]);
+void maior_elementoN(float v[10]);
+void menor_elementoN(float v[10]);
+void permutar_vetor(float v[10]);
+void copiar_vetor(float v[10], float copia[10]);
+void restaurar_copia(float v[10], float copia[10]);
