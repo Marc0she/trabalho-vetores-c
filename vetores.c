@@ -5,7 +5,7 @@ int verificar_vetor(int v){
     if (v == 1){
         return 1;
     } else {
-        printf("N�o foi criado um vetor.\n\n");
+        printf("Não foi criado um vetor.\n\n");
         return 0;
     }
 }
@@ -23,7 +23,7 @@ void sobre(void){
 void preencher_vetor(float vetor[10]) {
 	int i;
 	for(i = 0; i < 10; i++){
-		printf("Posicao %d: ", i);
+		printf("Posição %d: ", i);
 		scanf("%f", &vetor[i]);
 	}
 }
@@ -59,7 +59,7 @@ void maior_elemento(float v[10]){
             posicao = i;
         }
     }
-    printf("O maior elemento do vetor �: %g, sua posicao �: %d.\n\n", maior, posicao);
+    printf("O maior elemento do vetor é: %g, sua posicao é: %d.\n\n", maior, posicao);
 }
 
 void menor_elemento(float v[10]){
@@ -71,7 +71,7 @@ void menor_elemento(float v[10]){
             posicao = i;
         }
     }
-    printf("O menor elemento do vetor �: %g, sua posicao �: %d.\n\n", menor, posicao);
+    printf("O menor elemento do vetor é: %g, sua posicao é: %d.\n\n", menor, posicao);
 }
 
 void substituir_elemento(float v[10], int pos, float new){
@@ -86,15 +86,15 @@ void media_elementos(float v[10]){
        soma += v[i];
         }
         media = soma/10;
-        printf("A m�dia dos elementos do vetor �: %g\n\n", media);
+        printf("A média dos elementos do vetor é: %g\n\n", media);
     }
 
 void maior_elementoN(float v[10]){
     int posicao_inicial;
-    printf("Indique a partir de qual posi��o pretende comparar os elementos (0 a 9): \n");
+    printf("Indique a partir de qual posição pretende comparar os elementos (0 a 9): \n");
     scanf("%d", &posicao_inicial);
     if(posicao_inicial < 0 || posicao_inicial >= 10){
-        printf("Posi��o inv�lida! Escolha um n�mero entre 0 e 9.\n\n");
+        printf("Posição inválida! Escolha um número entre 0 e 9.\n\n");
         return;
     }
 
@@ -108,14 +108,14 @@ void maior_elementoN(float v[10]){
             posicao_maior = i;
         }
     }
-    printf("A partir da posi��o %d, o maior elemento �: %g (no indice %d ou %d, o elemento do vetor).\n\n", 
+    printf("A partir da posição %d, o maior elemento é: %g (no indice %d ou %d, o elemento do vetor).\n\n", 
            posicao_inicial, maior, posicao_maior, posicao_maior + 1);
 }
 
 
 void menor_elementoN(float v[10]){
     int posicao_inicial;
-    printf("\n\nIndique a partir de qual posição pretende comparar os elementos (0 a 9): \n\n");
+    printf("Indique a partir de qual posição pretende comparar os elementos (0 a 9): \n\n");
     scanf("%d", &posicao_inicial);
 
     float menor = v[posicao_inicial]; 
@@ -128,7 +128,7 @@ void menor_elementoN(float v[10]){
         }
     }
     
-    printf("\n\nO menor elemento do vetor a partir da posição %d é: %g, e sua posicao (indice) é: %d.\n\n", 
+    printf("\n\nO menor elemento do vetor a partir da posição %d é: %g, e sua posição (indice) é: %d.\n\n", 
            posicao_inicial, menor, posicao_menor);
 }
 
