@@ -5,38 +5,35 @@
 #include <stdlib.h>
 
 int main(){
-	SetConsoleOutputCP(CP_UTF8);
-	SetConsoleCP(CP_UTF8);
-	
-	setlocale (LC_ALL, "Portuguese");
+	setlocale (LC_ALL, ".UTF-8"); //o .utf-8 serve para permitir a exibiÃ§Ã£o de caracteres especiais, tanto no github desktop quanto no terminal.
 	float VetorInicial[10], VetorCopia[10];
 	int ec, vExiste = 0, ve = 0, cExiste = 0;
 	
 	do{
-		printf("*************************************************\n");
-		printf("0 - SAIR DA APLICAÇÃO\n");
-		printf("1 - INICIALIZAR O VETOR DE 10 POSIÇÕES\n");
-		printf("2 - EXIBIR O VETOR COMPLETO\n");
-		printf("3 - EXIBIR O VETOR EM ORDEM INVERSA\n");
-		printf("4 - EXIBIR O ELEMENTO DE UMA POSIÇÃO DO VETOR\n");
-		printf("5 - SUBSTITUIR O ELEMENTO DE UMA POSIÇÃO DO VETOR\n");
-		printf("6 - EXIBIR O MAIOR NÚMERO DO VETOR E SUA POSIÇÃO\n");
-		printf("7 - EXIBIR O MENOR NÚMERO DO VETOR E SUA POSIÇÃO\n");
-		printf("8 - RETORNAR A MÉDIA DOS NÚMEROS DO VETOR\n");
-		printf("9 - RETORNAR A QUANTIDADE DE NÚMEROS DENTRO DE UM INTERVALO KI E KJ\n");
-		printf("10 - RETORNAR A POSIÇÃO DO MAIOR NÚMERO A PARTIR DE UMA POSIÇÃO N INFORMADA\n");
-		printf("11 - RETORNAR A POSIÇÃO DO MENOR NÚMERO A PARTIR DE UMA POSIÇÃO N INFORMADA\n");
-		printf("12 - PERMUTAR DUAS POSIÇÕES DO VETOR\n");
-		printf("13 - CRIAR UMA CÓPIA DO VETOR\n");
-		printf("14 - RESTAURAR A CÓPIA DO VETOR\n");
-		printf("15 - ORDENAR O VETOR\n");
-		printf("16 - SOBRE");
+		printf("*************************************************\n"
+		"0 - SAIR DA APLICAÃ‡ÃƒO\n"
+		"1 - INICIALIZAR O VETOR DE 10 POSIÃ‡Ã•ES\n"
+		"2 - EXIBIR O VETOR COMPLETO\n"
+		"3 - EXIBIR O VETOR EM ORDEM INVERSA\n"
+		"4 - EXIBIR O ELEMENTO DE UMA POSIÃ‡ÃƒO DO VETOR\n"
+		"5 - SUBSTITUIR O ELEMENTO DE UMA POSIÃ‡ÃƒO DO VETOR\n"
+		"6 - EXIBIR O MAIOR NÃšMERO DO VETOR E SUA POSIÃ‡ÃƒO\n"
+		"7 - EXIBIR O MENOR NÃšMERO DO VETOR E SUA POSIÃ‡ÃƒO\n"
+		"8 - RETORNAR A MÃ‰DIA DOS NÃšMEROS DO VETOR\n"
+		"9 - RETORNAR A QUANTIDADE DE NÃšMEROS DENTRO DE UM INTERVALO KI E KJ\n"
+		"10 - RETORNAR A POSIÃ‡ÃƒO DO MAIOR NÃšMERO A PARTIR DE UMA POSIÃ‡ÃƒO N INFORMADA\n"
+		"11 - RETORNAR A POSIÃ‡ÃƒO DO MENOR NÃšMERO A PARTIR DE UMA POSIÃ‡ÃƒO N INFORMADA\n"
+		"12 - PERMUTAR DUAS POSIÃ‡Ã•ES DO VETOR\n"
+		"13 - CRIAR UMA CÃ“PIA DO VETOR\n"
+		"14 - RESTAURAR A CÃ“PIA DO VETOR\n"
+		"15 - ORDENAR O VETOR\n"
+		"16 - SOBRE");
 
-		do { //validação de entrada, caso o usuário digite "abc" por exemplo.
-			printf("\nDIGITE A OPÇÃO DESEJADA: ");
-			ve = scanf("%d", &ec); //scanf retorna 0 caso não consiga ler um número
+		do { //validaÃ§Ã£o de entrada, caso o usuÃ¡rio digite "abc" por exemplo.
+			printf("\nDIGITE A OPÃ‡ÃƒO DESEJADA: ");
+			ve = scanf("%d", &ec); //scanf retorna 0 caso nÃ£o consiga ler um nÃºmero
 			if (ve != 1){
-				printf("\nSeleção invalida.\n");
+				printf("\nSeleÃ§Ã£o invalida.\n");
 				limpaBuffer();
 			}
 		} while (ve != 1);
@@ -47,7 +44,7 @@ int main(){
 			case 1:
 				preencher_vetor(VetorInicial);
 				vExiste = 1;
-				printf("\nConcluído.\n");
+				printf("\nConcluÃ­do.\n");
 				system("pause");
 				break;
 
@@ -68,11 +65,11 @@ int main(){
 			case 4:
 				if (verificar_vetor(vExiste)){
 					int teste, q;
-					do { //validação de entrada
+					do { //validaÃ§Ã£o de entrada
 						printf("Selecione um valor de 0 a 9.\n");
 						teste = scanf("%d", &q);
 						if (teste != 1 || q<0 || q>9){
-							printf("Seleção invalida.\n\n");
+							printf("SeleÃ§Ã£o invalida.\n\n");
 							limpaBuffer();
 						}
 					} while (teste != 1 || q<0 || q>9);
@@ -85,24 +82,24 @@ int main(){
 				if (verificar_vetor(vExiste)){
 					int t, pos;
 					float val;
-					do { //validação de entrada das posições.
-						printf("escolha uma posição do vetor (0 a 9): ");
+					do { //validaÃ§Ã£o de entrada das posiÃ§Ãµes.
+						printf("escolha uma posiÃ§Ã£o do vetor (0 a 9): ");
 						t = scanf("%d", &pos);
 						if (t != 1 || pos<0 || pos>9){
-							printf("\nSeleção invalida.\n");
+							printf("\nSeleÃ§Ã£o invalida.\n");
 							limpaBuffer();
 						}
 					} while (t != 1 || pos<0 || pos>9);
-					do{ //validação de entrada dos valores.
-						printf("\nescolha o novo valor para esta posição: ");
+					do{ //validaÃ§Ã£o de entrada dos valores.
+						printf("\nescolha o novo valor para esta posiÃ§Ã£o: ");
 						t = scanf("%f", &val);
 						if (t != 1){
-							printf("\nSeleçãoo invalida.\n");
+							printf("\nSeleÃ§Ã£o invalida.\n");
 							limpaBuffer();
 						}	
 					} while (t != 1);
 					substituir_elemento(VetorInicial, pos, val);
-					printf("Concluído.\n");
+					printf("ConcluÃ­do.\n");
 				}
 				system("pause");
 				break;
@@ -145,12 +142,15 @@ int main(){
 				if(verificar_vetor(vExiste)){
 					permutar_vetor(VetorInicial);
 				}
+				printf("ConcluÃ­do.\n");
 				system("pause");
 				break;
 			case 13: 
 				if(verificar_vetor(vExiste)){
 					copiar_vetor(VetorInicial, VetorCopia);
 				}
+				cExiste == 1;
+				printf("ConcluÃ­do.\n");
 				system("pause");
 				break;
 			case 14: 
@@ -158,9 +158,10 @@ int main(){
 					if (cExiste == 1){
 						restaurar_copia(VetorCopia, VetorInicial);
 					} else {
-						printf("O vetor copia nao foi inicializado.");
+						printf("O vetor cÃ³pia nÃ£o foi inicializado.\n\n");
 					}
 				}
+				printf("ConcluÃ­do.\n");
 				system("pause");
 				break;
 			case 16:
@@ -169,7 +170,7 @@ int main(){
 				break;
 			case 0:
 				break;
-			default: printf("Não implementado.\n\n");
+			default: printf("NÃ£o implementado.\n\n");
 				system("pause");
 		}
 	} while (ec != 0);
