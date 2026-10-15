@@ -59,7 +59,7 @@ void maior_elemento(float v[10]){
             posicao = i;
         }
     }
-    printf("O maior elemento do vetor é: %g, sua posicao é: %d.\n\n", maior, posicao);
+    printf("O maior número do vetor é: %g, sua posicao é: %d.\n\n", maior, posicao);
 }
 
 void menor_elemento(float v[10]){
@@ -71,33 +71,35 @@ void menor_elemento(float v[10]){
             posicao = i;
         }
     }
-    printf("O menor elemento do vetor é: %g, sua posicao é: %d.\n\n", menor, posicao);
+    printf("O menor número do vetor é: %g, sua posicao é: %d.\n\n", menor, posicao);
 }
 
 void substituir_elemento(float v[10], int pos, float new){
     v[pos] = new;
 }
 
-void media_elementos(float v[10]){
+float media_elementos(float v[10]){
     int i;
     float media = 0;
     float soma = 0;
     for(i = 0; i < 10; i++ ){
        soma += v[i];
-        }
+    }
         media = soma/10;
-        printf("A média dos elementos do vetor é: %g\n\n", media);
-    }
+    return media;
+}
 
-void maior_elementoN(float v[10]){
-    int posicao_inicial;
-    printf("Indique a partir de qual posição pretende comparar os elementos (0 a 9): \n");
-    scanf("%d", &posicao_inicial);
-    if(posicao_inicial < 0 || posicao_inicial >= 10){
-        printf("Posição inválida! Escolha um número entre 0 e 9.\n\n");
-        return;
+int intervalo_kikj(float v[10], int ki, int kj){
+    int i, contagem = 0;
+    for (i=0; i<10; i++){
+        if (v[i] > ki && v[i] < kj){
+            contagem++;
+        }
     }
+    return contagem;
+}
 
+int pos_maior(float v[10], int posicao_inicial){
     float maior = v[posicao_inicial];
     int posicao_maior = posicao_inicial;
     int i;
@@ -108,16 +110,11 @@ void maior_elementoN(float v[10]){
             posicao_maior = i;
         }
     }
-    printf("A partir da posição %d, o maior elemento é: %g (no indice %d ou %d, o elemento do vetor).\n\n", 
-           posicao_inicial, maior, posicao_maior, posicao_maior + 1);
+    return posicao_maior;
 }
 
 
-void menor_elementoN(float v[10]){
-    int posicao_inicial;
-    printf("Indique a partir de qual posição pretende comparar os elementos (0 a 9): \n\n");
-    scanf("%d", &posicao_inicial);
-
+int pos_menor(float v[10], int posicao_inicial){
     float menor = v[posicao_inicial]; 
     int posicao_menor = posicao_inicial;
 	int i; 
@@ -127,17 +124,10 @@ void menor_elementoN(float v[10]){
             posicao_menor = i;
         }
     }
-    
-    printf("\n\nO menor elemento do vetor a partir da posição %d é: %g, e sua posição (indice) é: %d.\n\n", 
-           posicao_inicial, menor, posicao_menor);
+    return posicao_menor;
 }
 
-void permutar_vetor(float v[10]){
-    int i, j;
-    printf("\nDigite a primeira posição que deseja permutar (0 - 9): \n");
-    scanf("%d", &i);
-    printf("\nDigite a segunda posição que deseja permutar (0 - 9): \n");
-    scanf("%d", &j);
+void permutar_vetor(float v[10], int i, int j){
     float aux = v[i];
     v[i] = v[j];
     v[j] = aux;
@@ -145,10 +135,20 @@ void permutar_vetor(float v[10]){
 
 void copiar_vetor(float v[10], float copia[10]){
     int i;
-    for(i = 0; i < 9; i++){
+    for(i = 0; i < 10; i++){
     copia[i] = v[i];
     }
 }
 void restaurar_copia(float v[10], float copia[10]){
     copiar_vetor(v, copia);
+}
+
+void ordenar_vetor(float v[10]){
+    int i, menor;
+    float troca;
+    for (i=0;i<10;i++){
+        menor = pos_menor(v, i);
+        troca = v[menor];
+        permutar_vetor(v, i, menor);
+    }
 }
